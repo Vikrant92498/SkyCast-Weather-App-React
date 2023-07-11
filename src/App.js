@@ -14,6 +14,21 @@ function App() {
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const today_Date = currentTime.toLocaleDateString('en-US', options);
   const current_Time = currentTime.toLocaleTimeString('en-US');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [placeholder,setplaceholder] = useState('Search by city')
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    e.target.value="";
+    e.preventDefault();
+    
+    setplaceholder(searchTerm);
+    // Perform search logic here using the 'searchTerm' value
+    console.log('Searching for:', searchTerm);
+  };
 
   return (
     <div className="App">
@@ -24,6 +39,26 @@ function App() {
           <div className="time">{current_Time}</div>
         </div>
       </header>
+      <form onSubmit={handleSearch} style={{ display: 'flex',justifyContent:'center',margin:'7px' }}>
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={handleInputChange}
+        placeholder={placeholder}
+        style={{
+          width:"80%",
+          padding: '0.5rem',
+          fontSize: '1rem',
+          borderRadius: '4px',
+          border: '1px solid #ccc',
+          marginRight: '0.5rem',
+        }}
+      />
+      <button type="submit" style={{ padding: '0.5rem 1rem', borderRadius: '4px', background: 'rgb(72 72 72)', color: 'white', border: 'none' }}>
+        Search
+      </button>
+    </form>
+    <div className='result-page'></div>
     </div>
   );
 }
