@@ -1,4 +1,5 @@
 import './App.css';
+import SmallBoxes from './components/Smallboxes';
 import React, { useState, useEffect } from 'react';
 function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -16,7 +17,10 @@ function App() {
   const current_Time = currentTime.toLocaleTimeString('en-US');
   const [searchTerm, setSearchTerm] = useState('');
   const [placeholder,setplaceholder] = useState('Search by city')
-
+  const[loading ,isLoading] = useState(false);
+  const [humidity,sethumidity] = useState('');
+  const [temp,setTemp] = useState('')
+  const [data,setData] =useState();
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -27,7 +31,13 @@ function App() {
     
     setplaceholder(searchTerm);
     // Perform search logic here using the 'searchTerm' value
-    console.log('Searching for:', searchTerm);
+    const link="https://api.openweathermap.org/data/2.5/weather?q="+searchTerm+"&appid=6778f336382c3774112c0c4f6c32a647";
+    fetch(link)
+    .then(response=>response.json()).then((data)=>{
+      setData(data);
+      console.log(data)
+    })
+    
   };
 
   return (
@@ -46,19 +56,38 @@ function App() {
         onChange={handleInputChange}
         placeholder={placeholder}
         style={{
-          width:"80%",
+          width:"60%",
           padding: '0.5rem',
           fontSize: '1rem',
           borderRadius: '4px',
           border: '1px solid #ccc',
           marginRight: '0.5rem',
+          outlineWidth:"0"
         }}
       />
       <button type="submit" style={{ padding: '0.5rem 1rem', borderRadius: '4px', background: 'rgb(72 72 72)', color: 'white', border: 'none' }}>
         Search
       </button>
     </form>
-    <div className='result-page'></div>
+    <div className='result-page'>
+      {data? (
+        <div className="weather">
+          <div className="current-weather">
+            <h3>CURRENT WEATHER</h3>
+            <SmallBoxes data={data}/>
+  
+          </div>
+          <div className="atmosphere">
+            <h3>ATMOSPHERE</h3>
+          </div>
+        </div>
+      ) : (
+        <div className="weather">Search the weather of city</div>
+      )}
+      <div className="forecast">
+          <h3>PREDICTIONS</h3>
+      </div>
+    </div>
     </div>
   );
 }

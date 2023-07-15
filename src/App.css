@@ -3,6 +3,10 @@
   flex-direction: column;
   background-color: blue;
   min-height: 100vh;
+  background: url('\\assests\\bg-img.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 .App-header {
@@ -19,4 +23,65 @@
 .today{
   font-size: calc(4px + 2vmin);
   color: white;
+}
+.result-page{
+ display: flex;
+ align-self: center;
+ width: 85vw;
+ height: 100vh;
+ background-color: bisque;
+ border-radius: 5px;
+ justify-content: space-around;
+}
+.weather{
+  display:flex;
+  margin: 7px;
+  flex-direction: column;
+  width: 45%;
+  
+}
+.current-weather{
+  
+  justify-content: center;
+  margin-bottom: 7px;
+  height: 400px;
+  width: -webkit-fill-available;
+  background-color: rgb(148, 124, 228);
+}
+h3 {
+  text-align: center;
+  margin-top: 5px;
+}
+.atmosphere{
+  
+  height: 400px;
+  background-color: rgb(65, 225, 225);
+  width: -webkit-fill-available;
+}
+.forecast{
+  margin: 7px;
+  width: 50%;
+  height: 400px;
+  background-color: blueviolet;
+}
+@media (max-width: 800px) {
+  .result-page {
+    flex-direction: column;
+    height: auto;
+  }
+}
+@media (max-width: 800px) {
+  .forecast {
+    width: 98%;
+  }
+}
+@media (max-width: 800px) {
+  .weather {
+    width:98%;
+  }
+}
+
+.container{
+  display: flex;
+  justify-content: space-around;
 }
