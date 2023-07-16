@@ -1,4 +1,3 @@
-import React from 'react';
 import ClearSkyDay from '../assests/icons/01d.png'
 import ClearSkyNight from '../assests/icons/01n.png'
 import FewCloudsDay from '../assests/icons/02d.png'
@@ -18,6 +17,14 @@ import SnowNight from '../assests/icons/13n.png'
 import FogDay from '../assests/icons/50d.png'
 import FogNight from '../assests/icons/50n.png'
 import Unknown from '../assests/icons/unknown.png'
+import City from '../assests/icons/city.png'
+import Temp from '../assests/icons/temp.png'
+import feelsLike from "../assests/icons/feelsLike.png";
+import windIcon from '../assests/icons/wind.png';
+import humidityIcon from '../assests/icons/humidity.png'
+import eyeIcon from '../assests/icons/visibility.png'
+import sunrise from '../assests/icons/sunrise.png'
+import sunset from '../assests/icons/sunset.png'
 const mapWeatherCodeToIcon = (code) => {
   switch (code) {
     case '01d':
@@ -56,6 +63,22 @@ const mapWeatherCodeToIcon = (code) => {
         return FogDay;
     case '50n':
       return FogNight;
+    case "city":
+        return City;
+    case "temperature":
+        return Temp;
+    case 'feelLike':
+        return feelsLike;
+    case "wind":
+        return windIcon;
+    case "humidity":
+        return humidityIcon;
+    case "visibility":
+        return eyeIcon;
+    case "sunrise":
+        return sunrise;
+    case "sunset":
+        return sunset;
     default:
       return Unknown;
   }
