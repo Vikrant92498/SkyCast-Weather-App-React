@@ -1,9 +1,11 @@
 .App {
   display: flex;
   flex-direction: column;
-  background-color: blue;
   min-height: 100vh;
-  background: url('\\assests\\bg-img.jpg');
+
+  
+  background: linear-gradient(125deg, #caf4ed 0%, #9a02db);
+  
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
@@ -29,7 +31,7 @@
  align-self: center;
  width: 85vw;
  height: 100vh;
- background-color: bisque;
+
  border-radius: 5px;
  justify-content: space-around;
 }
@@ -41,12 +43,13 @@
   
 }
 .current-weather{
-  
+  background-color: #2f3332;
+  opacity: 0.7;
   justify-content: center;
   margin-bottom: 7px;
   height: 400px;
   width: -webkit-fill-available;
-  background-color: rgb(148, 124, 228);
+  border-radius: 10px;
 }
 h3 {
   text-align: center;
@@ -55,14 +58,24 @@ h3 {
 .atmosphere{
   
   height: 400px;
-  background-color: rgb(65, 225, 225);
+  background-color: #2f3332;
+  opacity: 0.7;
+  border-radius: 10px;
   width: -webkit-fill-available;
 }
 .forecast{
+  background-color: #2f3332;
+  opacity: 0.7;
+  border-radius: 10px;
   margin: 7px;
   width: 50%;
-  height: 400px;
-  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  overflow-y: scroll;
+}
+.forecast::-webkit-scrollbar {
+  display: none;
 }
 @media (max-width: 800px) {
   .result-page {
@@ -73,6 +86,7 @@ h3 {
 @media (max-width: 800px) {
   .forecast {
     width: 98%;
+    height: auto;
   }
 }
 @media (max-width: 800px) {
@@ -82,6 +96,10 @@ h3 {
 }
 
 .container{
+  display: flex;
+  justify-content: space-around;
+}
+.info{
   display: flex;
   justify-content: space-around;
 }
