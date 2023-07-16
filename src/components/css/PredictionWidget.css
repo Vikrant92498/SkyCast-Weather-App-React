@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    border-radius: 7px;
+    height: 66px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 5px;
+}
+.widget{
+    width: 33%;
+    height: 100%;
+    border-bottom: 1px solid black;
+    border-radius: 7px;
+}
+ 
+.icon {
+    width: 40px; /* Set the desired width of the icon */
+    height: 40px; /* Set the desired height of the icon */
+  }
+  span{
+    margin: 0;
+    padding: 0;
+  }
+  .status{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+ 
+  .status  .icon{
+    width: 30px; /* Set the desired width of the icon */
+    height: 30px;
+  }
